@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://vhwr1gajsdqv"]
+[gd_scene load_steps=9 format=3 uid="uid://vhwr1gajsdqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_5mub3"]
 [ext_resource type="Script" path="res://Scripts/Boulder.gd" id="3_c4ujr"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="3_hg1ow"]
 [ext_resource type="Texture2D" uid="uid://ptp5f4qb5xt1" path="res://Assets/BasicRock.png" id="4_ycgrg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddg63"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n8fvr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsk2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etsg6"]
 
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_5mub3")
@@ -20,6 +28,10 @@ offset_right = 68.0
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ddg63")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n8fvr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qsk2l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_etsg6")
 action_mode = 0
 flat = true
 icon_alignment = 1
