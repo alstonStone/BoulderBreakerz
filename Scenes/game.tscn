@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://vhwr1gajsdqv"]
+[gd_scene load_steps=11 format=3 uid="uid://vhwr1gajsdqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_5mub3"]
 [ext_resource type="Script" path="res://Scripts/Boulder.gd" id="3_c4ujr"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="3_hg1ow"]
 [ext_resource type="Texture2D" uid="uid://ptp5f4qb5xt1" path="res://Assets/BasicRock.png" id="4_ycgrg"]
+[ext_resource type="Texture2D" uid="uid://cvowocacos4dh" path="res://Assets/orcs/Orc_Warrior/Attack_1.png" id="5_o7sma"]
+[ext_resource type="Script" path="res://Scripts/Orc.gd" id="6_rytmr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddg63"]
 
@@ -85,5 +87,11 @@ offset_bottom = -1.52588e-05
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Hire Dwarf : $5"
+
+[node name="Orc" type="Sprite2D" parent="."]
+position = Vector2(905, 486)
+texture = ExtResource("5_o7sma")
+hframes = 4
+script = ExtResource("6_rytmr")
 
 [connection signal="pressed" from="Boulder" to="Boulder" method="_on_pressed"]
