@@ -131,9 +131,10 @@ text = "Hire Orc : $50"
 visible = false
 position = Vector2(903, 516)
 sprite_frames = SubResource("SpriteFrames_v8ye3")
-frame = 1
-frame_progress = 0.413756
 script = ExtResource("6_s0a0u")
 
 [connection signal="pressed" from="Boulder" to="Boulder" method="_on_pressed"]
 [connection signal="pressed" from="ShopTab/ShopLabel/BuyOrcButton" to="Orc" method="_on_buy_orc_button_pressed"]
+[connection signal="visibility_changed" from="ShopTab/ShopLabel/BuyOrcButton" to="Boulder" method="_on_buy_orc_button_visibility_changed"]
+[connection signal="animation_finished" from="Orc" to="Boulder" method="_on_orc_animation_finished"]
+[connection signal="animation_looped" from="Orc" to="Boulder" method="_on_orc_animation_looped"]
