@@ -10,6 +10,5 @@ func _ready():
 func _process(delta):
 	await get_tree().create_timer(0.5).timeout
 	self.frame +=1
-	if self.frame >= 4:
-		self.frame = 0
+
 		
