@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://vhwr1gajsdqv"]
+[gd_scene load_steps=16 format=3 uid="uid://vhwr1gajsdqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_5mub3"]
 [ext_resource type="Script" path="res://Scripts/Boulder.gd" id="3_c4ujr"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="3_hg1ow"]
 [ext_resource type="Texture2D" uid="uid://ptp5f4qb5xt1" path="res://Assets/BasicRock.png" id="4_ycgrg"]
 [ext_resource type="Texture2D" uid="uid://cvowocacos4dh" path="res://Assets/orcs/Orc_Warrior/Attack_1.png" id="5_o7sma"]
-[ext_resource type="Script" path="res://Scripts/Orc.gd" id="6_rytmr"]
+[ext_resource type="Script" path="res://Scripts/Orc.gd" id="6_s0a0u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddg63"]
 
@@ -14,6 +14,45 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsk2l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etsg6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtmt1"]
+atlas = ExtResource("5_o7sma")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boatv"]
+atlas = ExtResource("5_o7sma")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jg50"]
+atlas = ExtResource("5_o7sma")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctve6"]
+atlas = ExtResource("5_o7sma")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8ye3"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_xtmt1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_boatv")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7jg50")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_ctve6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7jg50")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_5mub3")
@@ -88,10 +127,11 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Hire Dwarf : $5"
 
-[node name="Orc" type="Sprite2D" parent="."]
-position = Vector2(905, 486)
-texture = ExtResource("5_o7sma")
-hframes = 4
-script = ExtResource("6_rytmr")
+[node name="Orc" type="AnimatedSprite2D" parent="."]
+position = Vector2(903, 516)
+sprite_frames = SubResource("SpriteFrames_v8ye3")
+frame = 1
+frame_progress = 0.413756
+script = ExtResource("6_s0a0u")
 
 [connection signal="pressed" from="Boulder" to="Boulder" method="_on_pressed"]
