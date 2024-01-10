@@ -8,3 +8,10 @@ func _ready():
 
 func _process(_delta):
 	self.play()
+
+
+func _on_buy_orc_button_pressed():
+	
+	if Game.score >= 5 :
+		Game.score -= 5
+		self.visible = true

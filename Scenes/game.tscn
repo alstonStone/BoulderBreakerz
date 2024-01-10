@@ -95,7 +95,7 @@ text = "SCORE
 "
 script = ExtResource("3_hg1ow")
 
-[node name="ItemList" type="ItemList" parent="."]
+[node name="ShopTab" type="ItemList" parent="."]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -104,7 +104,7 @@ offset_left = -500.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="ItemList"]
+[node name="ShopLabel" type="Label" parent="ShopTab"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -115,7 +115,7 @@ text = "Shop
 "
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="ItemList/Label"]
+[node name="BuyOrcButton" type="Button" parent="ShopTab/ShopLabel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.398
@@ -125,9 +125,10 @@ offset_top = -0.0240097
 offset_bottom = -1.52588e-05
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
-text = "Hire Dwarf : $5"
+text = "Hire Orc : $50"
 
 [node name="Orc" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(903, 516)
 sprite_frames = SubResource("SpriteFrames_v8ye3")
 frame = 1
@@ -135,3 +136,4 @@ frame_progress = 0.413756
 script = ExtResource("6_s0a0u")
 
 [connection signal="pressed" from="Boulder" to="Boulder" method="_on_pressed"]
+[connection signal="pressed" from="ShopTab/ShopLabel/BuyOrcButton" to="Orc" method="_on_buy_orc_button_pressed"]
