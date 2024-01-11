@@ -126,6 +126,7 @@ offset_bottom = -1.52588e-05
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Hire Orc : $50"
+flat = true
 
 [node name="Orc" type="AnimatedSprite2D" parent="."]
 visible = false
