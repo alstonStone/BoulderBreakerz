@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://vhwr1gajsdqv"]
+[gd_scene load_steps=17 format=3 uid="uid://vhwr1gajsdqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_5mub3"]
+[ext_resource type="Texture2D" uid="uid://qhn8uf67lx1c" path="res://Assets/backgroundFull.png" id="2_7vuj5"]
 [ext_resource type="Script" path="res://Scripts/Boulder.gd" id="3_c4ujr"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="3_hg1ow"]
 [ext_resource type="Texture2D" uid="uid://ptp5f4qb5xt1" path="res://Assets/BasicRock.png" id="4_ycgrg"]
@@ -57,54 +58,36 @@ animations = [{
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_5mub3")
 
-[node name="Boulder" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -68.0
-offset_top = -68.0
-offset_right = 68.0
-offset_bottom = 68.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ddg63")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_n8fvr")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_qsk2l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_etsg6")
-action_mode = 0
-flat = true
-icon_alignment = 1
-script = ExtResource("3_c4ujr")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(947, 537)
+texture = ExtResource("2_7vuj5")
 
-[node name="BoulderImage" type="Sprite2D" parent="Boulder"]
-position = Vector2(69, 70)
-scale = Vector2(3, 3)
-texture = ExtResource("4_ycgrg")
-hframes = 2
-vframes = 3
-
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="Background"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 88.0
+offset_left = -947.0
+offset_top = -537.0
+offset_right = -947.0
+offset_bottom = -449.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 64
 text = "SCORE
 "
 script = ExtResource("3_hg1ow")
 
-[node name="ShopTab" type="ItemList" parent="."]
+[node name="ShopTab" type="ItemList" parent="Background"]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -500.0
+offset_left = -1427.0
+offset_top = -537.0
+offset_right = -927.0
+offset_bottom = -537.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="ShopLabel" type="Label" parent="ShopTab"]
+[node name="ShopLabel" type="Label" parent="Background/ShopTab"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -115,7 +98,7 @@ text = "Shop
 "
 horizontal_alignment = 1
 
-[node name="BuyOrcButton" type="Button" parent="ShopTab/ShopLabel"]
+[node name="BuyOrcButton" type="Button" parent="Background/ShopTab/ShopLabel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.398
@@ -128,14 +111,43 @@ theme_override_font_sizes/font_size = 32
 text = "Hire Orc : $50"
 flat = true
 
-[node name="Orc" type="AnimatedSprite2D" parent="."]
+[node name="Boulder" type="Button" parent="Background"]
+anchors_preset = -1
+anchor_left = 0.676
+anchor_top = 0.879
+anchor_right = 0.676
+anchor_bottom = 0.879
+offset_left = -1000.4
+offset_top = -593.32
+offset_right = -899.4
+offset_bottom = -486.32
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ddg63")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n8fvr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qsk2l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_etsg6")
+action_mode = 0
+flat = true
+icon_alignment = 1
+script = ExtResource("3_c4ujr")
+
+[node name="BoulderImage" type="Sprite2D" parent="Background/Boulder"]
+position = Vector2(47, 53)
+scale = Vector2(3, 3)
+texture = ExtResource("4_ycgrg")
+hframes = 2
+vframes = 3
+
+[node name="Orc" type="AnimatedSprite2D" parent="Background"]
 visible = false
-position = Vector2(903, 516)
+position = Vector2(286, 404)
 sprite_frames = SubResource("SpriteFrames_v8ye3")
+frame_progress = 0.470725
 script = ExtResource("6_s0a0u")
 
-[connection signal="pressed" from="Boulder" to="Boulder" method="_on_pressed"]
-[connection signal="pressed" from="ShopTab/ShopLabel/BuyOrcButton" to="Orc" method="_on_buy_orc_button_pressed"]
-[connection signal="visibility_changed" from="ShopTab/ShopLabel/BuyOrcButton" to="Boulder" method="_on_buy_orc_button_visibility_changed"]
-[connection signal="animation_finished" from="Orc" to="Boulder" method="_on_orc_animation_finished"]
-[connection signal="animation_looped" from="Orc" to="Boulder" method="_on_orc_animation_looped"]
+[connection signal="pressed" from="Background/ShopTab/ShopLabel/BuyOrcButton" to="Background/Orc" method="_on_buy_orc_button_pressed"]
+[connection signal="visibility_changed" from="Background/ShopTab/ShopLabel/BuyOrcButton" to="Background/Boulder" method="_on_buy_orc_button_visibility_changed"]
+[connection signal="pressed" from="Background/Boulder" to="Background/Boulder" method="_on_pressed"]
+[connection signal="animation_finished" from="Background/Orc" to="Background/Boulder" method="_on_orc_animation_finished"]
+[connection signal="animation_looped" from="Background/Orc" to="Background/Boulder" method="_on_orc_animation_looped"]
