@@ -14,7 +14,4 @@ func _process(_delta):
 	self.play()
 
 
-func _on_buy_orc_button_pressed():
-	if Game.score >= 1:
-		Game.score -= 1
-		self.visible = true
+

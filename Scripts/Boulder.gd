@@ -31,20 +31,20 @@ func _on_pressed():
 				#rest image
 		image.frame = 0
 
-func _on_orc_animation_looped():
-	if orcVisible :
-		health -= Game.hitDamage
-		image.frame += 1
-		if health <=0:
-			#reset health
-			health = startingHealth 
-			image.frame += 1
-			await get_tree().create_timer(0.1).timeout
-			#add reward to cash
-			Game.score += reward
-					#rest image
-			image.frame = 0
-
-
-func _on_buy_orc_button_visibility_changed():
-	orcVisible = true
+#func _on_orc_animation_looped():
+	#if orcVisible :
+		#health -= Game.hitDamage
+		#image.frame += 1
+		#if health <=0:
+			##reset health
+			#health = startingHealth 
+			#image.frame += 1
+			#await get_tree().create_timer(0.1).timeout
+			##add reward to cash
+			#Game.score += reward
+					##rest image
+			#image.frame = 0
+#
+#
+#func _on_buy_orc_button_visibility_changed():
+	#orcVisible = true

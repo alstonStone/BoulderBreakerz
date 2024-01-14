@@ -1,12 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://vhwr1gajsdqv"]
+[gd_scene load_steps=10 format=3 uid="uid://vhwr1gajsdqv"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_5mub3"]
 [ext_resource type="Texture2D" uid="uid://qhn8uf67lx1c" path="res://Assets/backgroundFull.png" id="2_7vuj5"]
 [ext_resource type="Script" path="res://Scripts/Boulder.gd" id="3_c4ujr"]
 [ext_resource type="Script" path="res://Scripts/ScoreLabel.gd" id="3_hg1ow"]
 [ext_resource type="Texture2D" uid="uid://ptp5f4qb5xt1" path="res://Assets/BasicRock.png" id="4_ycgrg"]
-[ext_resource type="Texture2D" uid="uid://cvowocacos4dh" path="res://Assets/orcs/Orc_Warrior/Attack_1.png" id="5_o7sma"]
-[ext_resource type="Script" path="res://Scripts/Orc.gd" id="6_s0a0u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ddg63"]
 
@@ -15,45 +13,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qsk2l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etsg6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xtmt1"]
-atlas = ExtResource("5_o7sma")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_boatv"]
-atlas = ExtResource("5_o7sma")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jg50"]
-atlas = ExtResource("5_o7sma")
-region = Rect2(192, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ctve6"]
-atlas = ExtResource("5_o7sma")
-region = Rect2(288, 0, 96, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_v8ye3"]
-animations = [{
-"frames": [{
-"duration": 4.0,
-"texture": SubResource("AtlasTexture_xtmt1")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_boatv")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_7jg50")
-}, {
-"duration": 4.0,
-"texture": SubResource("AtlasTexture_ctve6")
-}, {
-"duration": 0.5,
-"texture": SubResource("AtlasTexture_7jg50")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_5mub3")
@@ -139,15 +98,6 @@ texture = ExtResource("4_ycgrg")
 hframes = 2
 vframes = 3
 
-[node name="Orc" type="AnimatedSprite2D" parent="Background"]
-visible = false
-position = Vector2(286, 404)
-sprite_frames = SubResource("SpriteFrames_v8ye3")
-frame_progress = 0.470725
-script = ExtResource("6_s0a0u")
-
-[connection signal="pressed" from="Background/ShopTab/ShopLabel/BuyOrcButton" to="Background/Orc" method="_on_buy_orc_button_pressed"]
+[connection signal="pressed" from="Background/ShopTab/ShopLabel/BuyOrcButton" to="." method="_on_buy_orc_button_pressed"]
 [connection signal="visibility_changed" from="Background/ShopTab/ShopLabel/BuyOrcButton" to="Background/Boulder" method="_on_buy_orc_button_visibility_changed"]
 [connection signal="pressed" from="Background/Boulder" to="Background/Boulder" method="_on_pressed"]
-[connection signal="animation_finished" from="Background/Orc" to="Background/Boulder" method="_on_orc_animation_finished"]
-[connection signal="animation_looped" from="Background/Orc" to="Background/Boulder" method="_on_orc_animation_looped"]
