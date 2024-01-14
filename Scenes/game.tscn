@@ -70,6 +70,7 @@ offset_top = -537.0
 offset_right = -947.0
 offset_bottom = -449.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "SCORE
 "
@@ -108,8 +109,7 @@ offset_top = -0.0240097
 offset_bottom = -1.52588e-05
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
-text = "Hire Orc : $50"
-flat = true
+text = "Hire Orc : $1"
 
 [node name="Boulder" type="Button" parent="Background"]
 anchors_preset = -1
