@@ -20,6 +20,7 @@ atlas = ExtResource("1_pq8s0")
 region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v8ye3"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 4.0,
@@ -43,7 +44,10 @@ animations = [{
 }]
 
 [node name="Orc" type="AnimatedSprite2D"]
-position = Vector2(286, 404)
+z_index = 1
+position = Vector2(1228, 943)
 sprite_frames = SubResource("SpriteFrames_v8ye3")
 frame_progress = 0.470725
 script = ExtResource("2_yut4j")
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

@@ -20,5 +20,6 @@ func _on_buy_orc_button_pressed():
 		Game.spawn_orc()
 
 func spawn_orc():
-	var enemy_scene = preload("res://Scenes/orc.tscn")
-	self.add_child(enemy_scene.new())
+	var orcScene = preload("res://Scenes/orc.tscn")
+	var instance = orcScene.instantiate()
+	self.add_child(instance)
