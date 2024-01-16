@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0ifm2lunsfj8"]
+[gd_scene load_steps=8 format=3 uid="uid://d4jclwx251bjl"]
 
 [ext_resource type="Texture2D" uid="uid://cvowocacos4dh" path="res://Assets/orcs/Orc_Warrior/Attack_1.png" id="1_pq8s0"]
 [ext_resource type="Script" path="res://Scripts/Orc.gd" id="2_yut4j"]
