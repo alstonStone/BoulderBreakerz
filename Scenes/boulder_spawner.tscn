@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://m5tfyopq4hny"]
+
+[node name="BoulderSpawner" type="Node2D"]
+
+[node name="SpawnPosition-1" type="Marker2D" parent="."]
+position = Vector2(208, 968)
+
+[node name="SpawnPosition-2" type="Marker2D" parent="."]
+position = Vector2(570, 972)
+
+[node name="SpawnPosition-3" type="Marker2D" parent="."]
+position = Vector2(918, 970)
+
+[node name="SpawnPosition-4" type="Marker2D" parent="."]
+position = Vector2(1272, 972)
