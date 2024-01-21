@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm1ieftnerabh"]
+
+[ext_resource type="Script" path="res://Scripts/orc_spawner.gd" id="1_1kcr2"]
+
+[node name="OrcSpawner" type="Node2D"]
+script = ExtResource("1_1kcr2")
+
+[node name="SpawnPosition-1" type="Marker2D" parent="."]
+position = Vector2(208, 968)
+
+[node name="SpawnPosition-2" type="Marker2D" parent="."]
+position = Vector2(570, 972)
+
+[node name="SpawnPosition-3" type="Marker2D" parent="."]
+position = Vector2(918, 970)
+
+[node name="SpawnPosition-4" type="Marker2D" parent="."]
+position = Vector2(1272, 972)
