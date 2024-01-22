@@ -3,7 +3,7 @@ extends Node2D
 var orcCost = 1
 var orcCount = 0
 
-@onready var spawn_positions = $SpawnPostitions
+
 
 func _ready():
 	pass # Replace with function body.
@@ -17,7 +17,24 @@ func spawn_orc():
 
 func spawn_orc_at(markerNumber):
 	var orcScene = preload("res://Scenes/orc.tscn")
-	var spawn_positions_array = spawn_positions.get_children
 	var instance = orcScene.instantiate()
 	add_child(instance)
-	instance.global_position = spawn_positions_array.pop_at(0)
+	match markerNumber:
+		1:
+			instance.global_position = $"SpawnPostitions/SpawnPosition-1".global_position
+		2:
+			instance.global_position = $"SpawnPostitions/SpawnPosition-2".global_position
+		3:
+			instance.global_position = $"SpawnPostitions/SpawnPosition-3".global_position
+		4:
+			instance.global_position = $"SpawnPostitions/SpawnPosition-4".global_position
+		_: 
+			print(" cant make more orcs. ALL SPOTS FULL")
+	instance.global_position
+
+
+func _on_buy_orc_button_pressed():
+	if(Game.score >= 1):
+		Game.score -= 1
+		spawn_orc()
+
