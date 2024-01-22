@@ -98,6 +98,6 @@ vframes = 3
 
 [node name="OrcSpawner" parent="." instance=ExtResource("6_ddh0t")]
 
-[connection signal="pressed" from="UI/ShopTab/ShopLabel/BuyOrcButton" to="OrcSpawner" method="_on_buy_orc_button_pressed"]
+[connection signal="pressed" from="UI/ShopTab/ShopLabel/BuyOrcButton" to="." method="_on_buy_orc_button_pressed"]
 [connection signal="visibility_changed" from="UI/ShopTab/ShopLabel/BuyOrcButton" to="Boulder" method="_on_buy_orc_button_visibility_changed"]
 [connection signal="pressed" from="Boulder" to="Boulder" method="_on_pressed"]
