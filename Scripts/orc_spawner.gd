@@ -4,10 +4,6 @@ var orcCost = 1
 var orcCount = 0
 
 
-
-func _ready():
-	pass # Replace with function body.
-
 func spawn_orc():
 	orcCount += 1
 	if(orcCount <= 4):
